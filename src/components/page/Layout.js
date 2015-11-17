@@ -1,17 +1,21 @@
 var React = require('react')
 
 // Component
-// import Navbar from '../project/Navbar.js'
-// import Footer from '../project/Footer.js'
+var Navbar = require('../ui/Navbar.js')
+var Footer = require('../ui/Footer.js')
 
-module.exports = React.createClass({
+var Layout = React.createClass({
   render() {
     return (
       <div>
+        <Navbar />
         <div>
           { this.props.children }
         </div>
+        <Footer />
       </div>
     )
   }
 })
+
+module.exports = Layout

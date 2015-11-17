@@ -2,14 +2,14 @@ var React = require('react')
 var reactRouter = require('react-router')
 var Link = reactRouter.Link
 
-var Home = React.createClass({
+var Palette = React.createClass({
   render() {
     return (
       <div className='container'>
-        <h1>Home</h1>
+        <h1>Palette</h1>
       </div>
     )
   }
 })
 
-module.exports = Home
+module.exports = Palette

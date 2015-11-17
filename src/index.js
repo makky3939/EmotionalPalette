@@ -13,6 +13,8 @@ var Layout = require('./components/page/Layout.js')
 
 // Project components
 var Home = require('./components/project/Home.js')
+var Palette = require('./components/project/Palette.js')
+var Browse = require('./components/project/Browse.js')
 
 function onUpdateHandler() {
   window.scrollTo(0, 0)
@@ -24,6 +26,8 @@ ReactDOM.render((
   <Router>
     <Route path="" component={Layout}>
       <Route path="/" component={Home} />
+      <Route path="/palette" component={Palette} />
+      <Route path="/browse" component={Browse} />
     </Route>
     <Redirect from="/" to="/" />
   </Router>
