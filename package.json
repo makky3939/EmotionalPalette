@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/makky3939/EmotionalPalette#readme",
   "devDependencies": {
-    "babelify": "^7.2.0",
     "coffee-script": "^1.10.0",
     "gulp": "^3.9.0",
     "gulp-browserify": "^0.5.1",
@@ -30,8 +29,19 @@
     "gulp-ruby-sass": "^2.0.5",
     "gulp-uglify": "^1.5.1",
     "licensify": "^2.0.1",
+    "reactify": "^1.1.1",
     "require-dir": "^0.3.0",
     "rimraf": "^2.4.3",
-    "run-sequence": "^1.1.4"
+    "run-sequence": "^1.1.4",
+    "uglifyify": "^3.0.1"
+  },
+  "dependencies": {
+    "bootstrap": "https://github.com/twbs/bootstrap.git#v4-dev",
+    "font-awesome": "^4.4.0",
+    "history": "^1.13.1",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "react-router": "^1.0.0",
+    "reactify": "^1.1.1"
   }
 }

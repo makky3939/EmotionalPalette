@@ -9,8 +9,7 @@ gulp.task 'jade', ->
       errorHandler: (err) ->
         console.log err
         this.emit 'end'
-    .pipe gulpJade
-      basedir: '../src/jade/'
+    .pipe gulpJade()
     .pipe gulpPlumber.stop()
     .pipe gulp.dest '../dst/'
     .pipe gulpConnect.reload()
