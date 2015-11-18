@@ -1,12 +1,13 @@
 var React = require('react')
-var reactRouter = require('react-router')
-var Link = reactRouter.Link
 
 var Palette = React.createClass({
   render() {
     return (
       <div className='container'>
-        <h1>Palette</h1>
+        <h1>
+          Palette
+          <span>#{this.props.params.paletteId}</span>
+        </h1>
       </div>
     )
   }

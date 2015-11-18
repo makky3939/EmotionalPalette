@@ -12,7 +12,7 @@ var useBasename = history.useBasename
 var Layout = require('./components/page/Layout.js')
 
 // Project components
-var Home = require('./components/project/Home.js')
+var Generate = require('./components/project/Generate.js')
 var Palette = require('./components/project/Palette.js')
 var Browse = require('./components/project/Browse.js')
 
@@ -25,10 +25,10 @@ onUpdateHandler()
 ReactDOM.render((
   <Router>
     <Route path="" component={Layout}>
-      <Route path="/" component={Home} />
-      <Route path="/palette" component={Palette} />
+      <Route path="/generate" component={Generate} />
+      <Route path="/palette/:paletteId" component={Palette} />
       <Route path="/browse" component={Browse} />
     </Route>
-    <Redirect from="/" to="/" />
+    <Redirect from="/" to="/generate" />
   </Router>
 ), document.getElementById('react-root'))
