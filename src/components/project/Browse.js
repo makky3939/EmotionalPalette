@@ -35,7 +35,7 @@ var Browse = React.createClass({
             this.state.palette.map(function(item, index) {
               return (
                 <div className="col-sm-4" key={index} >
-                  <Palette key={index} id={item.id} text={item.text} />
+                  <Palette key={index} id={item.id} text={item.text} colors={item.colors}/>
                 </div>
               )
             })
