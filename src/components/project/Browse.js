@@ -1,4 +1,5 @@
 var React = require('react')
+var whatwgFetch = require('whatwg-fetch')
 var reactRouter = require('react-router')
 var Link = reactRouter.Link
 
@@ -23,7 +24,9 @@ var Browse = React.createClass({
     }).then(function(response) {
       return response.json();
     }).then(function(response) {
-      self.setState({palette: response})
+      if (response !== null) {
+        self.setState({palette: response})
+      }
     })
   },
   render() {
@@ -35,7 +38,7 @@ var Browse = React.createClass({
             this.state.palette.map(function(item, index) {
               return (
                 <div className="col-sm-4" key={index} >
-                  <Palette key={index} id={item.id} text={item.text} colors={item.colors}/>
+                  <Palette key={index} id={item.id} text={item.text} colors={item.colors} createdAt={item.createdAt}/>
                 </div>
               )
             })

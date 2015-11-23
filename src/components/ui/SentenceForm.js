@@ -27,7 +27,7 @@ var SentenceForm = React.createClass({
           <label>Text:</label>
           <input type="text" className="form-control" ref="text" placeholder="Enter Text" />
         </fieldset>
-        <button type="submit" className="btn btn-primary" onClick={this.onClick}>Submit</button>
+        <div className="btn btn-primary" onClick={this.onClick}>Submit</div>
       </form>
     )
   }
