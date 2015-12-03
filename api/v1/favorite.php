@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: text/javascript; charset=utf-8");
-include 'pdo.php';
+include '_pdo.php';
 
 switch ($_SERVER['REQUEST_METHOD']) {
   case 'POST':

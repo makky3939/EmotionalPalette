@@ -1,9 +1,9 @@
 <?php
 try {
   $pdo = new PDO(
-	 'mysql:host=localhost; dbname=s1311495; charset=utf8',
-	 's1311495',
-	 'tsukuba',
+	 'mysql:host=localhost; dbname=dbname; charset=utf8',
+	 'user',
+	 'pass',
 	 array(PDO::ATTR_EMULATE_PREPARES => false)
  );
 } catch (PDOException $e) {
