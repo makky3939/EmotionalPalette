@@ -33,6 +33,7 @@ var Browse = React.createClass({
     return (
       <div className='container'>
         <h1>Browse</h1>
+        <hr />
         <div className='row'>
           {
             this.state.palette.map(function(item, index) {

@@ -1,4 +1,6 @@
 var React = require('react')
+var reactRouter = require('react-router')
+var Link = reactRouter.Link
 
 // Component
 var PaletteUi = require('../ui/Palette.js')
@@ -30,16 +32,20 @@ var Palette = React.createClass({
     return (
       <div className='container'>
         <h1>Palette</h1>
-        <span>#{this.props.params.paletteId}</span>
-        {
-          this.state.palette.map(function(item, index) {
-            return (
-              <div className="col-sm-4" key={index} >
-                <PaletteUi key={index} id={item.id} text={item.text} colors={item.colors} createdAt={item.createdAt}/>
-              </div>
-            )
-          })
-        }
+        <hr />
+        <p>#{this.props.params.paletteId}</p>
+        <div className='row'>
+          {
+            this.state.palette.map(function(item, index) {
+              return (
+                <div className="col-sm-12" key={index} >
+                  <PaletteUi key={index} id={item.id} text={item.text} colors={item.colors} createdAt={item.createdAt}/>
+                </div>
+              )
+            })
+          }
+        </div>
+        <Link className="btn btn-primary" to="/browse" activeClassName="active">Browse</Link>
       </div>
     )
   }
