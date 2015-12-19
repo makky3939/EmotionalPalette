@@ -1,7 +1,6 @@
 <?php
 header('Content-Type: text/javascript; charset=utf-8');
 include '_pdo.php';
-// include '_color.php';
 
 switch ($_SERVER['REQUEST_METHOD']) {
   case 'POST':
@@ -23,7 +22,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
       $keywords = preg_split("//u", $keyword, -1, PREG_SPLIT_NO_EMPTY);
       $keywords = implode("|", $keywords);
 
-      // $colorCode = calculateRgb($dict, $keyword);
       $pdo -> beginTransaction();
       $statement = $pdo ->  prepare("
         select red, green, blue
