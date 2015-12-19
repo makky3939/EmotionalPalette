@@ -13,7 +13,7 @@ var FavoriteButton = React.createClass({
   },
   componentWillMount: function() {
     var self = this;
-    fetch('http://turkey.slis.tsukuba.ac.jp/~s1311495/api/v1/favorite.php?id=' + this.props.id, {
+    fetch(('http://turkey.slis.tsukuba.ac.jp/~s1311495/api/v1/favorite.php?id=' + this.props.id), {
       method: 'GET',
       headers: {
         'Authorization': 'Basic ZGI6dHN1a3ViYQ=='
@@ -24,7 +24,7 @@ var FavoriteButton = React.createClass({
       self.setState({count: response})
     })
   },
-  onClick() {
+  onClick: function() {
     var self = this;
     fetch('http://turkey.slis.tsukuba.ac.jp/~s1311495/api/v1/favorite.php', {
       method: 'POST',
@@ -42,13 +42,16 @@ var FavoriteButton = React.createClass({
         if(self.isMounted()) {
           self.setState({disabled: false})
         }
-      }, 2400)
+      }, 2450)
     })
   },
-  render() {
+  render: function() {
     return (
       <button className="btn btn-primary-outline btn-sm" onClick={this.onClick} disabled={this.state.disabled}>
-        <i className="fa fa-star fa-fw" />
+        { this.state.disabled ?
+          <i className="fa fa-star fa-spin fa-fw" />:
+          <i className="fa fa-star fa-fw" />
+        }
         {this.state.count}
       </button>
     )

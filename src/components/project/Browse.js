@@ -29,16 +29,16 @@ var Browse = React.createClass({
       }
     })
   },
-  render() {
+  render: function() {
     return (
       <div className='container'>
-        <h1>Browse</h1>
+        <h1>さがす</h1>
         <hr />
         <div className='row'>
           {
             this.state.palette.map(function(item, index) {
               return (
-                <div className="col-sm-4" key={index} >
+                <div className="col-md-4 col-sm-6 col-xs-12" key={index} >
                   <Palette key={index} id={item.id} text={item.text} colors={item.colors} createdAt={item.createdAt}/>
                 </div>
               )

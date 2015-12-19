@@ -3,7 +3,7 @@ var reactRouter = require('react-router')
 var Link = reactRouter.Link
 
 var Navbar = React.createClass({
-  render() {
+  render: function() {
     return (
       <nav className="navbar navbar-light bg-faded">
         <div className="container">
@@ -12,10 +12,10 @@ var Navbar = React.createClass({
           </Link>
           <ul className="nav navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" to="/generate" activeClassName="active">Generate</Link>
+              <Link className="nav-link" to="/generate" activeClassName="active">つくる</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/browse" activeClassName="active">Browse</Link>
+              <Link className="nav-link" to="/browse" activeClassName="active">さがす</Link>
             </li>
           </ul>
         </div>

@@ -30,70 +30,93 @@ var Generate = React.createClass({
       }
     })
   },
-  render() {
+  render: function() {
     return (
-      <div className='container'>
-        <h1>Generate</h1>
-        <hr />
-        <div className='row'>
-          <div className='col-md-4 col-md-offset-4'>
-            <div className='card'>
-              <div className='card-block'>
-                <SentenceForm />
-              </div>
+      <div className='col-xs-12'>
+        <div className='row colorful'>
+          <div className='container'>
+            <div className='col-md-6 col-md-offset-3'>
+              <SentenceForm />
             </div>
           </div>
         </div>
 
-        <h2>概要</h2>
-        <hr />
-        <div className='row'>
-          <div className='col-xs-12'>
-            <h3>アプリ名</h3>
-            <p>EmotionalPalette</p>
-            <h3>開発者</h3>
-            <p>小林 正樹 : 学籍番号 201311495</p>
-            <h3>Source code</h3>
-            <p><a
-              href='https://github.com/makky3939/EmotionalPalette'
-              className='btn btn-primary-outline btn-sm'
-              target='_blank'
-            >GitHub</a></p>
-            <h3>テーブル一覧 : 課題7</h3>
-            <p>
-              <a
-                href='http://turkey.slis.tsukuba.ac.jp/~s1311495/sentence.php'
-                className='btn btn-primary-outline btn-sm'
-                target='_blank'
-              >Sentence table</a>
-
-              <a
-                href='http://turkey.slis.tsukuba.ac.jp/~s1311495/color.php'
-                className='btn btn-primary-outline btn-sm'
-                target='_blank'
-              >Color table</a>
-
-              <a
-                href='http://turkey.slis.tsukuba.ac.jp/~s1311495/favorite.php'
-                className='btn btn-primary-outline btn-sm'
-                target='_blank'
-              >Favorite table</a>
-            </p>
+        <div className='container'>
+          <h2>使い方</h2>
+          <p>このアプリでは、言葉から色の組み合わせ（パレット）をつくることが出来ます。</p>
+          <span>資料: </span>
+          <a
+            href='http://turkey.slis.tsukuba.ac.jp/~s1311495/s1311495-f-Kobayashi-Masaki.ppt'
+            className='btn btn-primary-outline btn-sm'
+            target='_blank'
+          >
+          <i className="fa fa-file-powerpoint-o fa-fw" />.ppt</a>
+          <a
+            href='http://turkey.slis.tsukuba.ac.jp/~s1311495/s1311495-f-Kobayashi-Masaki.pdf'
+            className='btn btn-primary-outline btn-sm'
+            target='_blank'
+          ><i className="fa fa-file-pdf-o fa-fw" />.pdf</a>
+          <h3>1.パレットを作る</h3>
+          <hr />
+          <p>
+            入力フォームに言葉を入力して、「パレットを作る」ボタンを押します。
+            日本語以外を入力すると、黒(#000000)が作られます。
+          </p>
+          <div className='container'>
+            <div className='col-md-6 col-md-offset-3'>
+              <SentenceForm isMock={true}/>
+            </div>
+          </div>
+          <h3>2.パレットを楽しむ</h3>
+          <hr />
+          <p>
+            言葉を入力すると、次のようなカラーパレットが作られます。
+            お気に入りの「パレット」は出来ましたか？
+          </p>
+          <p>
+            「詳細」を押すと、色の詳細情報を確認することが出来ます。
+          </p>
+          <div className='container'>
+            <div className='col-md-6 col-md-offset-3'>
+              { this.state.palette[0]?
+                <Palette id={this.state.palette[0].id} />:
+                null
+              }
+            </div>
           </div>
         </div>
 
-        <h2>Most popular palettes</h2>
-        <hr />
-        <div className='row'>
-          {
-            this.state.palette.map(function(item, index) {
-              return (
-                <div className="col-sm-4" key={index} >
-                  <Palette key={index} id={item.id} text={item.text} colors={item.colors} createdAt={item.createdAt}/>
-                </div>
-              )
-            })
-          }
+        <div className='container'>
+          <h3>3.パレットを見つける</h3>
+          <hr />
+          <p>
+            ページ上部にある、「さがす」ボタンを押すとこれまでに作られた「パレット」を見ることが出来ます。
+            お気に入りの「パレット」を見つけたら「
+            <i className="fa fa-star fa-fw" />
+            」を押しましょう。
+          </p>
+          <p>
+            人気のパレットを紹介します。
+          </p>
+          <div className='row'>
+            {
+              this.state.palette.map(function(item, index) {
+                return (
+                  <div className="col-sm-4" key={index} >
+                    <Palette key={index} id={item.id} />
+                  </div>
+                )
+              })
+            }
+          </div>
+        </div>
+
+        <div className='row colorful'>
+          <div className='container'>
+            <div className='col-md-6 col-md-offset-3'>
+              <SentenceForm />
+            </div>
+          </div>
         </div>
       </div>
     )
