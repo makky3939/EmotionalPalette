@@ -3,7 +3,7 @@
 
   try {
     $pdo -> beginTransaction();
-    $statement = $pdo -> prepare('select * from sentence');
+    $statement = $pdo -> prepare('select * from dictionary');
     $statement -> execute();
     $res = $statement -> fetchAll();
     $pdo -> commit();
@@ -22,7 +22,7 @@
     <title>EmotionalPalette</title>
   </head>
   <body>
-    <h1>Sentence table</h1>
+    <h1>dictionary table</h1>
     <hr />
     <pre><?php echo(var_dump($res)); ?></pre>
     <hr />

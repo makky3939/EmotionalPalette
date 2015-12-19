@@ -10,7 +10,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
       $statement = $pdo -> prepare("
         select sentence_id, s.text, c.red, c.green, c.blue, s.created_at
         from color as c, sentence as s
-        where c.sentence_id = s.id and s.id = :id"
+        where c.sentence_id = s.id and s.id = :id
+        order by c.id"
       );
       $statement -> bindParam(':id', $id, PDO::PARAM_INT);
       $statement -> execute();

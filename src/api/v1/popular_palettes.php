@@ -8,10 +8,16 @@ switch ($_SERVER['REQUEST_METHOD']) {
       $text = $_POST['text'];
       $pdo -> beginTransaction();
       $statement = $pdo -> prepare("
-        select sentence_id, s.text, c.red, c.green, c.blue, s.created_at
-        from sentence as s, color as c
-        where c.sentence_id = s.id
-        limit 16"
+        select
+          s.id, count(f.created_at) as size
+        from
+          favorite as f, sentence as s
+        where
+          f.sentence_id = s.id
+        group by
+          f.sentence_id
+        order by size desc
+        limit 6;"
       );
       $statement -> execute();
       $pdo -> commit();

@@ -10,7 +10,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
       $statement = $pdo -> prepare("
         select sentence_id, s.text, c.red, c.green, c.blue, s.created_at
         from color as c, sentence as s
-        where c.sentence_id = s.id"
+        where c.sentence_id = s.id
+        order by sentence_id desc"
       );
       $statement -> execute();
       $pdo -> commit();

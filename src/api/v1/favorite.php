@@ -15,6 +15,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
     } catch (PDOException $e) {
       exit('{"code": 400, "message": "bad request"}');
     }
+    sleep(1);
     exit(json_encode($sentenceId));
     break;
 
